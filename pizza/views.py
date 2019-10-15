@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    # return HttpResponse("Witaj w barze Dżungla!!")
+    # return HttpResponse("Witaj w barze!!")
     return render(request, 'pizza/index.html')
 
 def news(request):
