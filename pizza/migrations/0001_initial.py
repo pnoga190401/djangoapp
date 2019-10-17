@@ -26,8 +26,8 @@ class Migration(migrations.Migration):
             name='Skladnik',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nazwa', models.CharField(max_length=30, verbose_name='skladnik')),
-                ('jarski', models.NullBooleanField(default=False, help_text='Zaznacz, jeżeli składnik jest odpowiedni dla wegetarian', verbose_name='jarski')),
+                ('nazwa', models.CharField(max_length=30, verbose_name='składnik')),
+                ('jarski', models.BooleanField(default=False, help_text='Zaznacz, jeżeli składnik jest odpowiedni dla wegetarian', verbose_name='jarski?')),
                 ('cena', models.DecimalField(decimal_places=2, max_digits='3')),
                 ('pizza', models.ManyToManyField(related_name='skladniki', to='pizza.Pizza')),
             ],

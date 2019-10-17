@@ -10,6 +10,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RenameField(
+            model_name='skladnik',
+            old_name='pizza',
+            new_name='pizze',
+        ),
         migrations.AlterField(
             model_name='pizza',
             name='cena',
