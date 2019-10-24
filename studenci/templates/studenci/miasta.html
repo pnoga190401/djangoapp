@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Miasta</title>
-</head>
-<body>
+{% extends 'szablon.html' %}
 
-<h1>Miasta</h1>
+{% block naglowek %}Miasta{% endblock naglowek %}
 
+{% block tresc %}
 <h2>Dodaj miasto</h2>
 <form action="." method="POST">
     {% csrf_token %}
@@ -26,6 +21,5 @@
     {% endfor %}
 
 </ol>
+{% endblock tresc %}
 
-</body>
-</html>

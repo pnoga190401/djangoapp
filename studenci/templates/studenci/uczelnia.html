@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Uczelnie</title>
-</head>
-<body>
+{% extends 'szablon.html' %}
 
-<h1>Uczelnie</h1>
+{% block naglowek %}Uczelnie{% endblock naglowek %}
 
+{% block tresc %}
 <h2>Dodaj uczelnię</h2>
 <form action="." method="POST">
     {% csrf_token %}
@@ -25,6 +20,4 @@
     {% endfor %}
 
 </ol>
-
-</body>
-</html>
+{% endblock tresc %}
