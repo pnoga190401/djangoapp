@@ -15,4 +15,9 @@ class Migration(migrations.Migration):
             name='roks',
             field=models.CharField(blank=True, default='', max_length=3),
         ),
+        migrations.AlterField(
+            model_name='uczelnia',
+            name='nazwa',
+            field=models.CharField(max_length=30, verbose_name='uczelnia'),
+        ),
     ]
