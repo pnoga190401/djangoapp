@@ -8,12 +8,12 @@ from django.urls import reverse
 
 def index(request):
     #return HttpResponse("Witaj w aplikacji Studenci!")
-    return render(request, 'studeci/index.html')
+    return render(request, 'studenci/index.html')
 
 
 def news(request):
-    return HttpResponse("<h1>Nowości u studentów</h1>")
-    # return render(request, 'studenci/news.html')
+    #return HttpResponse("<h1>Nowości u studentów</h1>")
+    return render(request, 'pizza/news.html')
 
 def miasta(request):
 
@@ -58,7 +58,11 @@ def uczelnia(request):
         'uczelnia': uczelnia
     }
 
-    return render(request, 'studenci/uczelnia.html', kontekst)
+    if request.user.has_perm('studenci.add_uczelnia'):
+        return render(request, 'studenci/uczelnia.html', kontekst)
+    else:
+        message.info(request, "Nie mozesz dodawac uczelni")
+        return redirect(reverse('studenci:index'))
 
 def login(request):
 
