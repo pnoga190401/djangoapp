@@ -1,0 +1,14 @@
+{% extends 'szablon.html' %}
+{% block naglowek %}Miasta{% endblock naglowek %}
+
+{% block tresc %}
+<h2>Lista miast</h2>
+<ol>
+    {% for miasto in object_list %}
+        <li>{{ miasto.nazwa }}&nbsp;{{ miasto.kod }}
+            <a href="{% url 'studenci:miasta_edytuj' miasto.id %}">Edytuj</a>
+            <a href="{% url 'studenci:miasta_usun' miasto.id %}">Usun</a>
+        </li>
+    {% endfor %}
+</ol>
+{% endblock tresc %}

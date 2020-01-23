@@ -1,34 +1,34 @@
-from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.urls import reverse
-from users.forms import UserLoginForm
 from django.contrib.auth import authenticate, login, logout
-# Create your views here.
+from django.contrib.auth.forms import UserCreationForm
+from users.forms import UserLoginForm
+
+
 def index(request):
-    return render(request, 'users/index.html', kontekst)
+    return render(request, 'users/index.html')
+
 
 def wyloguj(request):
     logout(request)
     messages.info(request, "Zostałeś wylogowany!")
     return redirect(reverse('users:index'))
 
+
 def rejestruj(request):
     if request.method == 'POST':
-       form = UserCreationForm(request.POST)
-       if form.is_valid():
-           form.save()
-           messages.success(request, "Utworzono konto!")
-           return redirect(reverse('users:index'))
-
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Konto utworzono!")
+            return redirect(reverse('users:index'))
     else:
         form = UserCreationForm()
 
-    kontekst = {
-        'form': form
-    }
+    kontekst = {'form': form}
     return render(request, 'users/rejestruj.html', kontekst)
+
 
 def loguj(request):
     if request.method == 'POST':
